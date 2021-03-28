@@ -15,6 +15,7 @@ def openBrowser():
     driver = webdriver.Chrome(chromedriver)
     driver.maximize_window()
 
+    time.sleep(1)
     driver.get('https://software.naver.com/software/fontList.nhn?categoryId=I0000000')
     time.sleep(1)
 
