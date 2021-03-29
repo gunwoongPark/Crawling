@@ -63,14 +63,13 @@ def Download():
 def main():
     openBrowser()
     urlCrawling()
+    Download()
 
-    while True:
-        Download()
-        if not a_href_list:
-            break
-        openBrowser()
+    # while True:
+    #     Download()
+    #     if not a_href_list:
+    #         break
+    #     openBrowser()
 
 if __name__ == "__main__":
     main()
-
-
