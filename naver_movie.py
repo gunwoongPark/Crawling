@@ -21,7 +21,13 @@ def urlCrawling():
     # url 긁어오기
 
     tbody = driver.find_element_by_xpath('//*[@id="old_content"]/table/tbody')
-    # tr = tbody.find_element_by_
+    tr = tbody.find_element_by_xpath('//*[@id="old_content"]/table/tbody/tr[2]')
+    td = tr.find_element_by_class_name("title")
+    div = td.find_element_by_tag_name("div")
+    a_href = div.find_element_by_tag_name("a").get_attribute("href")
+    print(a_href)
+
+    print(td)
 
 def main():
     openBrowser()
