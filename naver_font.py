@@ -9,8 +9,8 @@ a_href_list = []
 
 def openBrowser():
     global driver
-    if not isinstance(driver, type(None)):
-        driver.close()
+    # if not isinstance(driver, type(None)):
+    #     driver.close()
 
     driver = webdriver.Chrome(chromedriver)
     driver.maximize_window()
@@ -64,12 +64,6 @@ def main():
     openBrowser()
     urlCrawling()
     Download()
-
-    # while True:
-    #     Download()
-    #     if not a_href_list:
-    #         break
-    #     openBrowser()
 
 if __name__ == "__main__":
     main()
