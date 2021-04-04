@@ -34,7 +34,7 @@ for index in range(0, 100):
         a_href_list.append(a_href)
     except NoSuchElementException:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(1)
+        time.sleep(2)
         target = driver.find_element_by_xpath('//*[@id="slot{}"]'.format(index))
         a_href = target.find_element_by_tag_name("a").get_attribute("href")
         a_href_list.append(a_href)
@@ -47,7 +47,7 @@ while a_href_list:
         driver.get(page)
         time.sleep(2)
 
-        if driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').text == "개발사 다운로드":
+        if driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').text == "개발사 다운로드" or driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').text == "폰트 선택":
             continue
 
         driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').click()
