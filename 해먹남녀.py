@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+import time
 
 chromedriver = './chromedriver.exe'
 driver = None
@@ -22,6 +23,7 @@ def urlCrawling():
             paging = driver.find_element_by_class_name("paging")
             page_url = paging.find_element_by_link_text(str(cur_page)).get_attribute("href")
             driver.get(page_url)
+            time.sleep(1)
 
             for index in range(1, 13):
                 recipe_list = driver.find_element_by_class_name("lst_recipe")
