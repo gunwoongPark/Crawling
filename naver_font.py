@@ -32,8 +32,9 @@ for index in range(0, 100):
 # 폰트 다운로드
 while a_href_list:
     page = a_href_list.pop(0)
+    time.sleep(2)
     driver.get(page)
-    time.sleep(1)
+    time.sleep(2)
     driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').click()
     time.sleep(0.5)
     driver.find_element_by_xpath('//*[@id="showUseRangeLayerDownloadLink"]').click()
