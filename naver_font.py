@@ -57,9 +57,9 @@ while a_href_list:
         driver.find_element_by_xpath('//*[@id="downloaderAlert"]/a[3]').click()
 
     except NoSuchElementException:
-        time.sleep(1)
+        time.sleep(2)
         driver.find_element_by_xpath('//*[@id="_sticked_guide"]/div[1]/a').click()
-        time.sleep(0.5)
+        time.sleep(1)
         driver.find_element_by_xpath('//*[@id="showUseRangeLayerDownloadLink"]').click()
-        time.sleep(0.5)
+        time.sleep(1)
         driver.find_element_by_xpath('//*[@id="downloaderAlert"]/a[3]').click()
