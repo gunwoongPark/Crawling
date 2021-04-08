@@ -17,6 +17,8 @@ def openBrowser():
     driver.get('https://haemukja.com/recipes?utf8=%E2%9C%93&category_group2%5B%5D=60&category_group2%5B%5D=70&category_group2%5B%5D=74')
 
 def urlCrawling():
+    print("url crawling...")
+
     cur_page = 1
 
     while True:
@@ -43,6 +45,8 @@ def urlCrawling():
             break
 
 def getRecipe():
+
+    print("get recipe...")
 
     while(a_href_list):
         page = a_href_list.pop(0)
@@ -79,13 +83,9 @@ def file_write():
 
 def main():
     openBrowser()
-    print("url crawling...")
     urlCrawling()
-    print("get url...")
     getRecipe()
-    print("get recipe...")
-
-
+    file_write()
 
 if __name__ == "__main__":
     main()
