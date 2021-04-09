@@ -14,7 +14,7 @@ def openBrowser():
     driver = webdriver.Chrome(chromedriver)
     driver.maximize_window()
 
-    driver.get('https://haemukja.com/recipes?utf8=%E2%9C%93&category_group2%5B%5D=60&category_group2%5B%5D=70&category_group2%5B%5D=74')
+    driver.get('https://haemukja.com/recipes?utf8=%E2%9C%93&category_group2%5B%5D=60&category_group2%5B%5D=70&category_group2%5B%5D=74&category_group2%5B%5D=210')
 
 def urlCrawling():
     print("url crawling...")
