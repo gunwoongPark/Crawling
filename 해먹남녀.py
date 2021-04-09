@@ -49,34 +49,43 @@ def getRecipe():
     print("get recipe...")
 
     while(a_href_list):
-        page = a_href_list.pop(0)
-        driver.get(page)
-        time.sleep(1)
+        try:
+            page = a_href_list.pop(0)
+            driver.get(page)
+            time.sleep(1)
 
-        # 요리명 긁기
-        dish = driver.find_element_by_xpath('//*[@id="container"]/div[2]/div/div[1]/section[1]/div/div[1]/h1/strong').text
+            # 요리명 긁기
+            dish = driver.find_element_by_xpath('//*[@id="container"]/div[2]/div/div[1]/section[1]/div/div[1]/h1/strong').text
 
-        # 재료 긁기
-        lst_ingrd = driver.find_element_by_class_name("lst_ingrd")
-        index = 1
-        while True:
-            try:
-                li = lst_ingrd.find_element_by_xpath('//*[@id="container"]/div[2]/div/div[1]/section[1]/div/div[3]/ul/li[{}]'.format(index))
-                ingrd = li.find_element_by_tag_name('span').text
-                ingrd_list.append(ingrd)
+            # 재료 긁기
+            lst_ingrd = driver.find_element_by_class_name("lst_ingrd")
+            index = 1
+            while True:
+                try:
+                    li = lst_ingrd.find_element_by_xpath('//*[@id="container"]/div[2]/div/div[1]/section[1]/div/div[3]/ul/li[{}]'.format(index))
+                    ingrd = li.find_element_by_tag_name('span').text
+                    ingrd_list.append(ingrd)
 
-                index += 1
-            except NoSuchElementException:
-                break
+                    index += 1
+                except NoSuchElementException:
+                    break
 
-        food_list.append({"dish":dish, "ingrd":ingrd_list})
+            food_list.append({"dish":dish, "ingrd":ingrd_list})
+
+        except NoSuchElementException:
+            continue
 
 def file_write():
+
+    print("file write...")
+
     f = open("해먹 레시피.txt", 'w')
     while (food_list):
-        food = food_list.pop(0)
-
-        f.write("요리 : {}\n재료 : {}\n\n".format(food["dish"], food["ingrd"]))
+        try:
+            food = food_list.pop(0)
+            f.write("요리 : {}\n재료 : {}\n\n".format(food["dish"], food["ingrd"]))
+        except UnicodeEncodeError:
+            continue
 
 
 
