@@ -25,7 +25,7 @@ while True:
             recipe = recipe_list.find_element_by_xpath('//*[@id="content"]/section/div[2]/div/ul/li[{}]'.format(index))
             span = recipe.find_element_by_class_name("judge")
             judge = span.find_element_by_tag_name("strong").text
-            if float(judge) < 2.5:
+            if float(judge) < 2.0:
                 continue
             a_href = recipe.find_element_by_tag_name("a").get_attribute("href")
             a_href_list.append(a_href)
@@ -67,7 +67,7 @@ while(a_href_list):
     except NoSuchElementException:
         continue
 
-# 파일에 이쁘게 정리
+# 텍스트 파일로 보기좋게..
 print("Writing to file...")
 
 f = open("해먹남녀 레시피.txt", "w")
